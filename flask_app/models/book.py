@@ -16,3 +16,9 @@ class Book():
         for item in results:
             books.append(cls(item))
         return books
+
+    @classmethod
+    def insert_book(cls, data):
+        query = "INSERT INTO books (title, num_of_pages) VALUES (%(title)s, %(num_of_pages)s);"
+        results = connectToMySQL('books_schema').query_db(query, data)
+        return results

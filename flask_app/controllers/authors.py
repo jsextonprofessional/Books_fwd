@@ -26,6 +26,12 @@ def books():
     books = Book.select_all_books()
     return render_template('books.html', books = books)
 
+# books POST route to insert new book
+@app.route('/books/insert_book', methods=['POST'])
+def insert_book():
+    Book.insert_book(request.form)
+    return redirect('/books')
+
 @app.route('/authors/<int:author_id>')
 def show_authors():
     return render_template('author_show.html')
