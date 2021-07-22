@@ -24,7 +24,7 @@
             <div class="yox">
                 <!-- jinja to display each author in href -->
                 {% for author in authors %}
-                <p>{{ author.name }}</p>
+                <a href="/authors/{{author.id}}">{{ author.name }}</a><br><br>
                 {% endfor %}
             </div><br>
             <a href="/books">Add Book</a>

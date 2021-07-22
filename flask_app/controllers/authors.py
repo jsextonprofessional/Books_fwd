@@ -32,9 +32,16 @@ def insert_book():
     Book.insert_book(request.form)
     return redirect('/books')
 
-@app.route('/authors/<int:author_id>')
-def show_authors():
-    return render_template('author_show.html')
+# author show route to select all favorites of author
+@app.route('/authors/<author_id>')
+def author_show(author_id):
+    data = {
+        'id': author_id
+    }
+    author_id = Author.get_book_by_id
+    books = Book.select_all_books()
+    return render_template("author_show.html", author_id = author_id, books = books)
+
 
 @app.route('/books/<int:book_id>')
 def show_books():
